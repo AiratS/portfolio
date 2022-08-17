@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'site.index');
+Route::view('/{any}', 'site.index')->where('any', '.*');;
