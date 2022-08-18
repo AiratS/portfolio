@@ -1,0 +1,28 @@
+// the-profile.scss
+@import "../abstract/colors";
+
+.the-profile {
+
+  width: 100%;
+  height: 100vh;
+  background-color: $app-green;
+
+  .the-profile__avatar {
+
+
+    .the-profile__avatar-img {
+      border-radius: 50%;
+    }
+  }
+
+  .the-profile__i-am {
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+
+  }
+
+  .the-profile__full-name {
+
+  }
+}
