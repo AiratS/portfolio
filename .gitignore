@@ -1,5 +1,7 @@
 /node_modules
 /public/build
+/public/fonts
+/public/images
 /public/mix-manifest.json
 /public/hot
 /public/storage
