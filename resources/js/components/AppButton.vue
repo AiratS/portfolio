@@ -2,7 +2,7 @@
   <button
     class="app-button"
     :class="modifiers"
-    :style="styles"
+    :style="{ width, height }"
     :disabled="disabled"
   >
     <slot></slot>
@@ -38,12 +38,6 @@ export default {
       return WHITE_GREEN === this.variant
         ? 'apt-button_variant_white-green'
         : 'apt-button_variant_green-white';
-    },
-    styles() {
-      return {
-        'width': this.width,
-        'height': this.height,
-      };
     },
   },
 }
