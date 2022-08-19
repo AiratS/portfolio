@@ -1,0 +1,38 @@
+// the-about-me.scss
+@import "../abstract/colors";
+
+.the-about-me-content {
+  display: flex;
+
+  .the-about-me-content__img {
+    width: 445px;
+    height: 445px;
+  }
+
+  .the-about-me-content__personal {
+    margin-left: 30px;
+    padding-top: 35px;
+
+    .the-about-me-content__specialty {
+      font-size: 28px;
+      font-weight: 700;
+      color: $app-black;
+    }
+
+    .the-about-me-content__info {
+      margin-top: 24px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: $app-dark-grey;
+    }
+
+    .the-about-me-content__qualities {
+      margin-top: 24px;
+    }
+
+    .the-about-me-content__buttons {
+      margin-top: 24px;
+    }
+  }
+}

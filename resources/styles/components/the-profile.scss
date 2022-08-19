@@ -1,8 +1,8 @@
 // the-profile.scss
 @import "../abstract/colors";
+@import "../abstract/variables";
 
 $profile-avatar-square: 427px;
-$profile-content-width: 1140px;
 
 .the-profile {
   position: relative;
@@ -13,11 +13,11 @@ $profile-content-width: 1140px;
   .the-profile__content {
     position: absolute;
     display: flex;
-    width: $profile-content-width;
+    width: $app-home-width;
     top: 50%;
     left: 50%;
     margin-top: -($profile-avatar-square / 1.5);
-    margin-left: -($profile-content-width / 2);
+    margin-left: -($app-home-width / 2);
     padding-top: 50px;
 
     .the-profile__avatar {
