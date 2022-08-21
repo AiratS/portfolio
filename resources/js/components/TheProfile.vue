@@ -27,9 +27,13 @@
 <script>
 import TheTextType from "./TheTextType";
 import AppButton from "./AppButton";
+
 export default {
   name: "TheProfile",
-  components: {AppButton, TheTextType},
+  components: {
+    AppButton,
+    TheTextType,
+  },
   data() {
     return {
       profile: {
