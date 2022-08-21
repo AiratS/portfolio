@@ -1,10 +1,10 @@
 <template>
   <div class="app-footer">
-    <div class="app-footer__social">
+    <div class="app-footer__socials">
       <div
         v-for="(social, index) in socials"
         :key="index"
-        class="app-footer__social-link"
+        class="app-footer__social"
       >
         <a :href="social.link"></a>
       </div>
@@ -73,14 +73,14 @@ export default {
   padding-bottom: 96px;
   background-color: $app-green;
 
-  .app-footer__social {
+  .app-footer__socials {
     display: flex;
     gap: 8px;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
 
-    .app-footer__social-link {
+    .app-footer__social {
       width: 45px;
       height: 45px;
       background-color: white;
