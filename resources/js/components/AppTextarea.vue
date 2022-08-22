@@ -43,6 +43,12 @@ export default {
     font-size: 16px;
     font-weight: 400;
     outline-color: $app-green;
+
+    &:focus {
+      outline: 0;
+      border: 1px solid $app-green;
+      box-shadow: 0 0 4px $app-green;
+    }
   }
 }
 </style>

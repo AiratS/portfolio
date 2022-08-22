@@ -79,6 +79,7 @@ export default {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
 
     .app-footer__social {
       width: 45px;

@@ -51,6 +51,7 @@ export default {
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
+  transition: background-color 0.2s ease-out;
 }
 
 .apt-button_variant_white-green {
