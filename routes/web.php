@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\SiteController;
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/{any}', 'site.index')->where('any', '.*');;
+Route::view('/{any}', 'site.index')->where('any', '.*');

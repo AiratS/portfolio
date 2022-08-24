@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Configurations for Backpack's ShowOperation.
  *
@@ -12,7 +14,7 @@ return [
     'contentClass' => 'col-md-8',
 
     // Automatically add all columns from the db table?
-    'setFromDb'  => true,
+    'setFromDb' => true,
 
     // Automatically add created_at and updated_at columns, if model has timestamps?
     'timestamps' => true,
@@ -20,5 +22,4 @@ return [
     // If model has SoftDeletes, allow the admin to access the Show page for
     // soft deleted items & add a deleted_at column to ShowOperation?
     'softDeletes' => false,
-
 ];

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Personal;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PersonalFactory extends Factory
 {

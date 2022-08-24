@@ -23,7 +23,8 @@
         "nunomaduro/collision": "^6.1",
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "spatie/laravel-ignition": "^1.0",
+        "ext-pdo": "*"
     },
     "autoload": {
         "psr-4": {
