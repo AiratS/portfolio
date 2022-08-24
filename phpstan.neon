@@ -1,0 +1,15 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+	level: 7
+	paths:
+		- app
+		- bootstrap
+		- config
+		- database
+		- lang
+		- resources
+		- routes
+		- tests
+		- .php-cs-fixer.dist.php
