@@ -1,0 +1,51 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\RedirectResponse\\|Illuminate\\\\Routing\\\\Redirector\\:\\:guest\\(\\)\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckIfAdmin.php
+
+		-
+			message: "#^Function backpack_auth not found\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckIfAdmin.php
+
+		-
+			message: "#^Function backpack_url not found\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckIfAdmin.php
+
+		-
+			message: "#^Function backpack_user not found\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckIfAdmin.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\CheckIfAdmin\\:\\:respondToUnauthorizedRequest\\(\\) should return Illuminate\\\\Http\\\\RedirectResponse\\|Illuminate\\\\Http\\\\Response but returns Illuminate\\\\Contracts\\\\Routing\\\\ResponseFactory\\|Illuminate\\\\Http\\\\Response\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckIfAdmin.php
+
+		-
+			message: "#^Parameter \\#1 \\$content of function response expects array\\|Illuminate\\\\Contracts\\\\View\\\\View\\|string\\|null, array\\|Illuminate\\\\Contracts\\\\Translation\\\\Translator\\|string\\|null given\\.$#"
+			count: 1
+			path: app/Http/Middleware/CheckIfAdmin.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\RedirectIfAuthenticated\\:\\:handle\\(\\) should return Illuminate\\\\Http\\\\RedirectResponse\\|Illuminate\\\\Http\\\\Response but returns Illuminate\\\\Http\\\\RedirectResponse\\|Illuminate\\\\Routing\\\\Redirector\\.$#"
+			count: 1
+			path: app/Http/Middleware/RedirectIfAuthenticated.php
+
+		-
+			message: "#^Class Database\\\\Factories\\\\PersonalFactory extends generic class Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory but does not specify its types\\: TModel$#"
+			count: 1
+			path: database/factories/PersonalFactory.php
+
+		-
+			message: "#^PHPDoc type string of property Database\\\\Factories\\\\PersonalFactory\\:\\:\\$model is not covariant with PHPDoc type class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:\\$model\\.$#"
+			count: 1
+			path: database/factories/PersonalFactory.php
+
+		-
+			message: "#^Undefined variable\\: \\$this$#"
+			count: 1
+			path: routes/console.php

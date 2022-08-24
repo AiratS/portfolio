@@ -25,7 +25,7 @@ class Personal extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
         'full_name',
@@ -39,7 +39,7 @@ class Personal extends Model
     /**
      * The attributes that should be cast to native types.
      *
-     * @var array
+     * @var string[]
      */
     protected $casts = [
         'id' => 'integer',
