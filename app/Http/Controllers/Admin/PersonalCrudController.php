@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\LangEnum;
 use App\Http\Requests\PersonalRequest;
 use App\Models\Personal;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -95,9 +96,8 @@ class PersonalCrudController extends CrudController
         $this->crud->addField([
             'name' => 'lang',
             'label' => trans('admin.lang'),
-            'attributes' => [
-                'disabled' => true,
-            ],
+            'type' => 'select_from_array',
+            'options' => LangEnum::caseLabels(),
         ]);
     }
 
