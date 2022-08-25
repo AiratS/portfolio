@@ -35,7 +35,10 @@ class PersonalCrudController extends CrudController
     {
         $this->crud->setModel(Personal::class);
         $this->crud->setRoute(config('backpack.base.route_prefix').'/personal');
-        $this->crud->setEntityNameStrings('personal', 'personals');
+        $this->crud->setEntityNameStrings(
+            trans('admin.personal.personal'),
+            trans('admin.personal.personal')
+        );
     }
 
     protected function setupListOperation(): void

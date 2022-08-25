@@ -10,7 +10,7 @@ trait EnumTrait
 {
     public static function casesAsArray(): array
     {
-        return array_map(function(LangEnum $case): mixed {
+        return array_map(function (LangEnum $case): mixed {
             return $case->value;
         }, self::cases());
     }

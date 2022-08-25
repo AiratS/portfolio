@@ -5,6 +5,7 @@ declare(strict_types=1);
 return [
     'lang' => 'Язык',
     'personal' => [
+        'personal' => 'Личная информация',
         'full_name' => 'Имя/Фамилия',
         'speciality' => 'Специальность',
         'info' => 'Доп. информация',
