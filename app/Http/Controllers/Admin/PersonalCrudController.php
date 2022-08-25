@@ -89,6 +89,7 @@ class PersonalCrudController extends CrudController
         $this->crud->addField([
             'name' => 'cv_url',
             'label' => trans('admin.personal.cv_url'),
+            'type' => 'url',
         ]);
 
         $this->crud->addField([

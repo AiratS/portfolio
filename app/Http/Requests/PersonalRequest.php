@@ -27,7 +27,7 @@ class PersonalRequest extends FormRequest
             'full_name' => 'required|min:5|max:255',
             'speciality' => 'required|min:5|max:255',
             'info' => 'required|min:5|max:1024',
-            'cv_url' => 'required|min:5|max:255',
+            'cv_url' => 'required|active_url',
             'cv_label' => 'required|min:5|max:255',
             'lang' => Rule::in(LangEnum::casesAsArray()),
         ];
