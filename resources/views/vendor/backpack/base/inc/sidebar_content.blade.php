@@ -6,3 +6,7 @@
 <li class="nav-item">
     <a class="nav-link" href="{{ backpack_url('personal') }}"><i class="nav-icon las la-male"></i> {{ trans('admin.personal.personal') }}</a>
 </li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ backpack_url('quality') }}"><i class="nav-icon las la-list"></i> {{ trans('admin.quality.qualities') }}</a>
+</li>
