@@ -18,4 +18,13 @@ return [
         'name' => 'Наименование',
         'value' => 'Значение',
     ],
+    'historical_point' => [
+        'historical_point' => 'Момент времени',
+        'historical_points' => 'Моменты времени',
+        'title' => 'Заголовок',
+        'place' => 'Место',
+        'years' => 'Годы',
+        'info' => 'Информация',
+        'type' => 'Тип',
+    ],
 ];

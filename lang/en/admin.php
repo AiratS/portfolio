@@ -18,4 +18,13 @@ return [
         'name' => 'Name',
         'value' => 'Value',
     ],
+    'historical_point' => [
+        'historical_point' => 'Historical point',
+        'historical_points' => 'Historical points',
+        'title' => 'Title',
+        'place' => 'Place',
+        'years' => 'Years',
+        'info' => 'Info',
+        'type' => 'Type',
+    ],
 ];

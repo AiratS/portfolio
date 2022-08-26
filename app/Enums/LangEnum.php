@@ -19,8 +19,8 @@ enum LangEnum: string
     public static function caseLabels(): array
     {
         return [
-            'ru' => 'Русский',
-            'en' => 'Английский',
+            self::RU->value => 'Русский',
+            self::EN->value => 'Английский',
         ];
     }
 }
