@@ -27,26 +27,24 @@
       <div class="app-header__github">
         <app-button variant="white-green">GitHub</app-button>
       </div>
-      <div
+      <the-menu-button
         class="app-header__menu"
         @click="onMenuClicked"
-      >
-        <div class="app-header__menu-line"></div>
-        <div class="app-header__menu-line"></div>
-        <div class="app-header__menu-line"></div>
-      </div>
+      />
     </div>
   </div>
 </template>
 
 <script>
 import AppButton from "./AppButton";
+import TheMenuButton from "./TheMenuButton";
 
 export default {
   name: "AppHeader",
 
   components: {
     AppButton,
+    TheMenuButton,
   },
 
   props: {
@@ -258,28 +256,9 @@ export default {
       .app-header__menu {
         position: absolute;
         display: block;
-        width: fit-content;
-        height: fit-content;
         top: 13px;
         right: 0;
-        padding: 10px 15px 4px 15px;;
         margin-right: 10px;
-        border: 1px solid $app-grey;
-        border-radius: 4px;
-        cursor: pointer;
-
-        .app-header__menu-line {
-          width: 26px;
-          height: 2px;
-          background-color: $app-dark-grey;
-          border-radius: 2px;
-          margin-bottom: 6px;
-        }
-      }
-
-      .app-header__menu:hover {
-        border-width: 1px;
-        border-color: $app-blue;
       }
     }
   }
