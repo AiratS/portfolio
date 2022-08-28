@@ -1,13 +1,13 @@
 <template>
-  <div class="app-page-block">
-    <div class="app-page-block__bg">
+  <div class="app-page-section">
+    <div class="app-page-section__background">
       Quality
     </div>
-    <div class="app-page-block__main">
-      <div class="app-page-block__title">
+    <div class="app-page-section__main">
+      <div class="app-page-section__title">
         Education & Experience
       </div>
-      <div class="app-page-block__content the-education-experience-content">
+      <div class="app-page-section__content the-education-experience-content">
         <historical-points
           class="the-education-experience-content__historical-points"
           :title="title"

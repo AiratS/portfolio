@@ -50,4 +50,10 @@ export default {
     }
   }
 }
+
+@media (max-width: 576px) {
+  .the-qualities {
+    flex-direction: column;
+  }
+}
 </style>

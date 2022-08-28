@@ -1,5 +1,6 @@
 // the-about-me.scss
 @import "../abstract/colors";
+@import "../abstract/variables";
 
 .the-about-me-content {
   display: flex;
@@ -36,3 +37,51 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .the-about-me-content {
+    .the-about-me-content__img {
+      width: 370px;
+      height: 370px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .the-about-me-content {
+    flex-direction: column;
+
+    .the-about-me-content__img {
+      width: 690px;
+      height: 690px;
+    }
+
+    .the-about-me-content__personal {
+      padding-top: 25px;
+      margin-left: 0;
+    }
+
+    .the-about-me-content__buttons {
+      margin-top: 15px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .the-about-me-content {
+    .the-about-me-content__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .the-about-me-content {
+    .the-about-me-content__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+

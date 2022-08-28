@@ -1,13 +1,13 @@
 <template>
-  <div class="app-page-block">
-    <div class="app-page-block__bg">
+  <div class="app-page-section">
+    <div class="app-page-section__background">
       About
     </div>
-    <div class="app-page-block__main">
-      <div class="app-page-block__title">
+    <div class="app-page-section__main">
+      <div class="app-page-section__title">
         About me
       </div>
-      <div class="app-page-block__content the-about-me-content">
+      <div class="app-page-section__content the-about-me-content">
         <div class="the-about-me-content__photo">
           <img
             class="the-about-me-content__img"
