@@ -69,4 +69,15 @@ export default {
     width: 50%;
   }
 }
+
+@media (max-width: 992px) {
+  .the-education-experience-content {
+    flex-direction: column;
+
+    .the-education-experience-content__historical-points {
+      padding-left: 0;
+      width: 100%;
+    }
+  }
+}
 </style>
