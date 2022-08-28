@@ -2,7 +2,11 @@
   <div class="the-profile">
     <div class="the-profile__content">
       <div class="the-profile__avatar">
-        <img class="the-profile__avatar-img" src="../../assets/images/avatar.jpeg" alt="avatar">
+        <img
+          class="the-profile__avatar-img"
+          src="../../assets/images/avatar.jpeg"
+          alt="avatar"
+        />
       </div>
       <div class="the-profile__info">
         <div class="the-profile__i-am">
@@ -21,18 +25,32 @@
         </div>
       </div>
     </div>
+    <div class="the-profile__go-down">
+      <app-bounce-down
+        class="the-profile__bounce-down"
+        @click="onDownClicked"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import TheTextType from "./TheTextType";
 import AppButton from "./AppButton";
+import AppBounceDown from "./AppBounceDown";
 
 export default {
   name: "TheProfile",
   components: {
+    AppBounceDown,
     AppButton,
     TheTextType,
+  },
+  props: {
+    downAnchor: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -45,6 +63,11 @@ export default {
         cvLabel: 'Download CV',
       },
     };
+  },
+  methods: {
+    onDownClicked() {
+      window.location.href = '#' + this.downAnchor;
+    },
   },
 }
 </script>

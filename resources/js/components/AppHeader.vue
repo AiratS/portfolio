@@ -56,25 +56,7 @@ export default {
   props: {
     navItems: {
       type: Array,
-      // required: true,
-      default: [
-        {
-          text: "home",
-          link: '#',
-        },
-        {
-          text: "home1",
-          link: '#',
-        },
-        {
-          text: "home2",
-          link: '#',
-        },
-        {
-          text: "home3",
-          link: '#',
-        },
-      ]
+      required: true,
     },
   },
 

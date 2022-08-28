@@ -1,10 +1,16 @@
 <template>
   <div class="home-view">
-    <app-header/>
-    <the-profile/>
+    <app-header :nav-items="navItems"/>
+
+    <a name="profile"></a>
+    <the-profile down-anchor="about" />
+
+    <a name="about"></a>
     <the-about-me/>
+
+    <a name="quality"></a>
     <the-education-experience/>
-    <the-contact-me/>
+
     <app-footer/>
   </div>
 </template>
@@ -26,6 +32,24 @@ export default {
     TheEducationExperience,
     TheAboutMe,
     TheProfile,
+  },
+  data() {
+    return {
+      navItems: [
+        {
+          text: "Home",
+          link: '#profile',
+        },
+        {
+          text: "About",
+          link: '#about',
+        },
+        {
+          text: "Quality",
+          link: '#quality',
+        },
+      ],
+    };
   },
 }
 </script>
