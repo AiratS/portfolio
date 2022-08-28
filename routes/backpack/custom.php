@@ -17,9 +17,12 @@ Route::group([
         (array) config('backpack.base.middleware_key', 'admin')
     ),
     'namespace' => 'App\Http\Controllers\Admin',
-], function () { // custom admin routes
+], function () {
+    Route::get('dashboard', function () {
+        return redirect('admin/personal');
+    });
     Route::crud('personal', 'PersonalCrudController');
     Route::crud('quality', 'QualityCrudController');
     Route::crud('historical-point', 'HistoricalPointCrudController');
     Route::crud('image', 'ImageCrudController');
-}); // this should be the absolute last line of this file
+});
