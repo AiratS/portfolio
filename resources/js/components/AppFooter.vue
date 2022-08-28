@@ -1,13 +1,11 @@
 <template>
   <div class="app-footer">
     <div class="app-footer__socials">
-      <div
-        v-for="(social, index) in socials"
+      <app-social
+        v-for="(item, index) in socials"
         :key="index"
-        class="app-footer__social"
-      >
-        <a :href="social.link"></a>
-      </div>
+        :link="item"
+      />
     </div>
     <div class="app-footer__links">
         <a
@@ -26,22 +24,25 @@
 </template>
 
 <script>
+import AppSocial from "./AppSocial";
+
 export default {
   name: "AppFooter",
+  components: {AppSocial},
   data() {
     return {
       socials: [
         {
-          icon: '',
-          link: '#',
+          icon: '../../assets/images/github-icon-32.png',
+          link: 'ya.ru',
         },
         {
-          icon: '',
-          link: '#',
+          icon: '../../assets/images/github-icon-32.png',
+          link: 'ya.ru',
         },
         {
-          icon: '',
-          link: '#',
+          icon: '../../assets/images/github-icon-32.png',
+          link: 'ya.ru',
         },
       ],
       links: [
@@ -80,13 +81,6 @@ export default {
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
-
-    .app-footer__social {
-      width: 45px;
-      height: 45px;
-      background-color: white;
-      border-radius: 45px;
-    }
   }
 
   .app-footer__links {
@@ -101,6 +95,10 @@ export default {
       font-weight: 400;
       color: white;
       text-decoration: none;
+    }
+
+    .app-footer__link:hover {
+      text-decoration: underline;
     }
 
     .app-footer__link:first-child {
