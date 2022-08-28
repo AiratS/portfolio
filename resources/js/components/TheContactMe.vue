@@ -11,27 +11,33 @@
         <app-input
           class="the-contact-me-content__field"
           placeholder="Name"
+          :error="nameError"
           v-model="name"
         />
         <app-input
           class="the-contact-me-content__field"
           placeholder="Email"
+          :error="emailError"
           v-model="email"
         />
       </div>
       <app-input
         class="the-contact-me-content__field"
         placeholder="Subject"
+        :error="subjectError"
         v-model="subject"
       />
       <app-textarea
         class="the-contact-me-content__field"
         placeholder="Message"
+        :error="messageError"
         v-model="message"
       />
       <app-button
         class="the-contact-me-content__submit"
         variant="white-green"
+        :disabled="v$.$invalid"
+        @click="onSubmitted"
       >
         Send message
       </app-button>
@@ -40,10 +46,17 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, email, helpers } from '@vuelidate/validators'
 import AppInput from "./AppInput";
 import AppTextarea from "./AppTextarea";
 import AppButton from "./AppButton";
 import AppPageSection from "../layouts/AppPageSection";
+import ValidatorMixin from "../mixins/ValidatorMixin";
+
+// TODO: make more universal way of resolving custom messages
+const requiredMessage = helpers.withMessage('Поле обязательно для заполнения', required);
+const emailMessage = helpers.withMessage('Неверный адрес электронной почты', email);
 
 export default {
   name: "TheContactMe",
@@ -53,6 +66,12 @@ export default {
     AppInput,
     AppTextarea,
   },
+  mixins: [ValidatorMixin],
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   data() {
     return {
       name: null,
@@ -60,6 +79,43 @@ export default {
       subject: null,
       message: null,
     };
+  },
+  validations() {
+    return {
+      name: {
+        required: requiredMessage,
+      },
+      email: {
+        required: requiredMessage,
+        email: emailMessage,
+      },
+      subject: {
+        required: requiredMessage,
+      },
+      message: {
+        required: requiredMessage,
+      },
+    };
+  },
+  computed: {
+    nameError() {
+      return this.getRequiredValidationMessage('name');
+    },
+    subjectError() {
+      return this.getRequiredValidationMessage('subject');
+    },
+    messageError() {
+      return this.getRequiredValidationMessage('message');
+    },
+    emailError() {
+      return this.getRequiredValidationMessage('email')
+        || this.getEmailValidationMessage('email');
+    },
+  },
+  methods: {
+    onSubmitted() {
+      // TODO: add implementation
+    },
   },
 }
 </script>

@@ -35,9 +35,17 @@ export default {
   },
   computed: {
     modifiers() {
-      return WHITE_GREEN === this.variant
-        ? 'apt-button_variant_white-green'
-        : 'apt-button_variant_green-white';
+      const classes = [];
+
+      classes.push(WHITE_GREEN === this.variant
+        ? 'app-button_variant_white-green'
+        : 'app-button_variant_green-white');
+
+      if (this.disabled) {
+        classes.push('app-button_disabled');
+      }
+
+      return classes;
     },
   },
 }
@@ -54,7 +62,7 @@ export default {
   transition: background-color 0.2s ease-out;
 }
 
-.apt-button_variant_white-green {
+.app-button_variant_white-green {
   border: 1px solid $app-green;
   background-color: white;
   color: $app-green;
@@ -65,7 +73,7 @@ export default {
   }
 }
 
-.apt-button_variant_green-white {
+.app-button_variant_green-white {
   border: 1px solid white;
   background-color: $app-green;
   color: white;
@@ -73,6 +81,24 @@ export default {
   &:hover {
     background-color: white;
     color: black;
+  }
+}
+
+.app-button_disabled {
+  opacity: 0.8;
+  cursor: default;
+  background-color: transparent;
+
+  &.app-button_variant_white-green:hover {
+    border: 1px solid $app-green;
+    background-color: white;
+    color: $app-green;
+  }
+
+  &.app-button_variant_green-white:hover {
+    border: 1px solid white;
+    background-color: $app-green;
+    color: white;
   }
 }
 </style>

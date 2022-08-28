@@ -2,10 +2,17 @@
   <div class="app-textarea">
     <textarea
       class="app-textarea__textarea"
+      :class="{ 'app-textarea__textarea_error': !!error }"
       :value="modelValue"
       :placeholder="placeholder"
       @input="handleInput"
     ></textarea>
+    <div
+      v-show="error"
+      class="app-textarea__error"
+    >
+      {{ error }}
+    </div>
   </div>
 </template>
 
@@ -17,6 +24,11 @@ export default {
     placeholder: {
       type: String,
       required: false,
+    },
+    error: {
+      type: String,
+      required: false,
+      default: 'some ajsdlkfjasd'
     },
   },
   methods: {
@@ -49,6 +61,24 @@ export default {
       border: 1px solid $app-green;
       box-shadow: 0 0 4px $app-green;
     }
+  }
+
+  .app-textarea__textarea_error {
+    border-color: $app-red;
+    outline-color: $app-red;
+
+    &:focus {
+      outline: 0;
+      border: 1px solid $app-red;
+      box-shadow: 0 0 4px $app-red;
+    }
+  }
+
+  .app-textarea__error {
+    margin-top: 3px;
+    font-size: 16px;
+    text-align: center;
+    color: $app-red;
   }
 }
 </style>
