@@ -7,6 +7,12 @@
       Contact me
     </template>
     <div class="the-contact-me-content">
+      <app-alert
+        class="the-contact-me-content__alert"
+        ref="the-contact-me-content__alert"
+        message="Ваше письмо успешно отправлено"
+      />
+
       <div class="the-contact-me-content__name-email">
         <app-input
           class="the-contact-me-content__field"
@@ -53,6 +59,7 @@ import AppTextarea from "./AppTextarea";
 import AppButton from "./AppButton";
 import AppPageSection from "../layouts/AppPageSection";
 import ValidatorMixin from "../mixins/ValidatorMixin";
+import AppAlert from "./AppAlert";
 
 // TODO: make more universal way of resolving custom messages
 const requiredMessage = helpers.withMessage('Поле обязательно для заполнения', required);
@@ -61,6 +68,7 @@ const emailMessage = helpers.withMessage('Неверный адрес элект
 export default {
   name: "TheContactMe",
   components: {
+    AppAlert,
     AppPageSection,
     AppButton,
     AppInput,
@@ -114,7 +122,7 @@ export default {
   },
   methods: {
     onSubmitted() {
-      // TODO: add implementation
+      this.$refs['the-contact-me-content__alert'].show();
     },
   },
 }
@@ -125,6 +133,10 @@ export default {
   width: 730px;
   margin-left: auto;
   margin-right: auto;
+
+  .the-contact-me-content__alert {
+    margin-bottom: 15px;
+  }
 
   .the-contact-me-content__name-email {
     display: flex;

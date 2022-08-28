@@ -1,4 +1,6 @@
 // _colors.scss
+
+// Main colors
 $app-green: #0BCEAF;
 $app-grey: #dee2e6;
 $app-light-grey: #ced4da;
@@ -6,3 +8,12 @@ $app-dark-grey: #6c757d;
 $app-blue: #015fcc;
 $app-black: #343a40;
 $app-red: #dc3545;
+
+// AppAlert
+$app-alert-success-border: #c3e6cb;
+$app-alert-success-bg: #d4edda;
+$app-alert-success-color: #155724;
+
+$app-alert-danger-border: #f5c6cb;
+$app-alert-danger-bg: #f8d7da;
+$app-alert-danger-color: #721c24;
