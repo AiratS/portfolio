@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Enums\HistoricalPointTypeEnum;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\HistoricalPoint;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class HistoricalPointFactory extends Factory
 {

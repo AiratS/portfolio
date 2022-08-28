@@ -27,4 +27,9 @@ return [
         'info' => 'Info',
         'type' => 'Type',
     ],
+    'image' => [
+        'image' => 'Image',
+        'images' => 'Images',
+        'type' => 'Type',
+    ],
 ];

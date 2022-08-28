@@ -16,7 +16,7 @@ use Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 
 /**
- * @property-read CrudPanel $crud
+ * @property CrudPanel $crud
  */
 class HistoricalPointCrudController extends CrudController
 {
@@ -32,7 +32,7 @@ class HistoricalPointCrudController extends CrudController
     public function setup(): void
     {
         $this->crud->setModel(HistoricalPoint::class);
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/historical-point');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/historical-point');
         $this->crud->setEntityNameStrings(
             trans('admin.historical_point.historical_point'),
             trans('admin.historical_point.historical_points'),
