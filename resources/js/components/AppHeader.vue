@@ -28,9 +28,12 @@
           </li>
         </ul>
       </div>
-      <div class="app-header__github">
+      <a
+        href="https://github.com/AiratS/portfolio"
+        class="app-header__github"
+      >
         <app-button variant="white-green">GitHub</app-button>
-      </div>
+      </a>
       <the-menu-button
         class="app-header__menu"
         @click="onMenuClicked"

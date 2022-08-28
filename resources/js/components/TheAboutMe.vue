@@ -29,13 +29,15 @@
           <the-qualities :qualities="qualities" />
         </div>
         <div class="the-about-me-content__buttons">
-          <app-button
-            width="108px"
-            height="46px"
-            variant="white-green"
-          >
-            Hire me
-          </app-button>
+          <a href="https://github.com/airats">
+            <app-button
+              width="108px"
+              height="46px"
+              variant="white-green"
+            >
+              Hire me
+            </app-button>
+          </a>
         </div>
       </div>
     </div>
