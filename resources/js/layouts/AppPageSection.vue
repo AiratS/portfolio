@@ -1,6 +1,28 @@
-// _page-section.scss
-@import "../abstract/colors";
-@import "../abstract/variables";
+<template>
+  <div class="app-page-section">
+    <div class="app-page-section__background">
+      <slot name="background"></slot>
+    </div>
+    <div class="app-page-section__main">
+      <div class="app-page-section__title">
+        <slot name="title"></slot>
+      </div>
+      <div class="app-page-section__content">
+        <slot></slot>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "AppPageSection",
+}
+</script>
+
+<style lang="scss" scoped>
+@import "../../styles/abstract/colors";
+@import "../../styles/abstract/variables";
 
 .app-page-section {
   position: relative;
@@ -98,3 +120,4 @@
     }
   }
 }
+</style>

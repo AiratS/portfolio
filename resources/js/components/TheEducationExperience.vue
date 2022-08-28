@@ -1,34 +1,34 @@
 <template>
-  <div class="app-page-section">
-    <div class="app-page-section__background">
+  <app-page-section>
+    <template #background>
       Quality
+    </template>
+    <template #title>
+      Education & Experience
+    </template>
+    <div class="the-education-experience-content">
+      <historical-points
+        class="the-education-experience-content__historical-points"
+        :title="title"
+        :points="points"
+      ></historical-points>
+      <historical-points
+        class="the-education-experience-content__historical-points"
+        :title="title"
+        :points="points"
+      ></historical-points>
     </div>
-    <div class="app-page-section__main">
-      <div class="app-page-section__title">
-        Education & Experience
-      </div>
-      <div class="app-page-section__content the-education-experience-content">
-        <historical-points
-          class="the-education-experience-content__historical-points"
-          :title="title"
-          :points="points"
-        ></historical-points>
-        <historical-points
-          class="the-education-experience-content__historical-points"
-          :title="title"
-          :points="points"
-        ></historical-points>
-      </div>
-    </div>
-  </div>
+  </app-page-section>
 </template>
 
 <script>
 import HistoricalPoints from "./HistoricalPoints";
+import AppPageSection from "../layouts/AppPageSection";
 
 export default {
   name: "TheEducationExperience",
   components: {
+    AppPageSection,
     HistoricalPoints,
   },
   data() {
