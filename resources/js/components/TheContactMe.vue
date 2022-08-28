@@ -42,7 +42,7 @@
       <app-button
         class="the-contact-me-content__submit"
         variant="white-green"
-        :disabled="v$.$invalid"
+        :disabled="!isFirstSubmit && v$.$invalid"
         @click="onSubmitted"
       >
         Send message
@@ -86,6 +86,7 @@ export default {
       email: null,
       subject: null,
       message: null,
+      isFirstSubmit: true,
     };
   },
   validations() {
@@ -107,22 +108,40 @@ export default {
   },
   computed: {
     nameError() {
-      return this.getRequiredValidationMessage('name');
+      return this._getValidationMessage('name');
     },
     subjectError() {
-      return this.getRequiredValidationMessage('subject');
+      return this._getValidationMessage('subject');
     },
     messageError() {
-      return this.getRequiredValidationMessage('message');
+      return this._getValidationMessage('message');
     },
     emailError() {
+      if (this.isFirstSubmit) {
+        return null;
+      }
+
       return this.getRequiredValidationMessage('email')
         || this.getEmailValidationMessage('email');
     },
   },
   methods: {
     onSubmitted() {
+      if (this.isFirstSubmit) {
+        this.isFirstSubmit = false;
+      }
+
+      if (this.v$.$invalid) {
+        return;
+      }
+
+      // TODO: add api request
       this.$refs['the-contact-me-content__alert'].show();
+    },
+    _getValidationMessage(field) {
+      return !this.isFirstSubmit
+        ? this.getRequiredValidationMessage(field)
+        : null;
     },
   },
 }
