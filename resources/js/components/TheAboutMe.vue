@@ -28,17 +28,6 @@
         <div class="the-about-me-content__qualities">
           <the-qualities :qualities="qualities" />
         </div>
-        <div class="the-about-me-content__buttons">
-          <a href="https://github.com/airats">
-            <app-button
-              width="108px"
-              height="46px"
-              variant="white-green"
-            >
-              Hire me
-            </app-button>
-          </a>
-        </div>
       </div>
     </div>
   </app-page-section>
@@ -114,10 +103,6 @@ export default {
     .the-about-me-content__qualities {
       margin-top: 24px;
     }
-
-    .the-about-me-content__buttons {
-      margin-top: 24px;
-    }
   }
 }
 
@@ -142,10 +127,6 @@ export default {
     .the-about-me-content__personal {
       padding-top: 25px;
       margin-left: 0;
-    }
-
-    .the-about-me-content__buttons {
-      margin-top: 15px;
     }
   }
 }
