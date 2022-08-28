@@ -1,5 +1,9 @@
 <template>
-  <div class="app-header" :class="headerModifiers">
+  <div
+    class="app-header"
+    :class="{ 'app-header_visible': isVisible }"
+    :style="styles"
+  >
     <div class="app-header__content">
       <div class="app-header__logo">
         <a href="/" class="app-header__logo-link">
@@ -9,7 +13,7 @@
       <div class="app-header__nav-block">
         <ul class="app-header__nav">
           <li
-            v-for="(item, index) in navItemsProcessed"
+            v-for="(item, index) in processedNavItems"
             :key="index"
             class="app-header__nav-item"
           >
@@ -38,6 +42,8 @@
 <script>
 import AppButton from "./AppButton";
 import TheMenuButton from "./TheMenuButton";
+
+const NAV_ITEM_HEIGHT_PX = 64;
 
 export default {
   name: "AppHeader",
@@ -92,13 +98,21 @@ export default {
   },
 
   computed: {
-    headerModifiers() {
+    styles() {
+      if (!this.isExpanded) {
+        return null;
+      }
+
       return {
-        'app-header_visible': this.isVisible,
-        'app-header_expanded': this.isExpanded,
-      };
+        height: this.navHeight,
+      }
     },
-    navItemsProcessed() {
+    navHeight() {
+      const height = NAV_ITEM_HEIGHT_PX * this.navItems.length;
+
+      return height + 'px';
+    },
+    processedNavItems() {
       return this.navItems.map((item) => {
         return {
           text: item.text,
@@ -157,7 +171,7 @@ export default {
   background-color: white;
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
   opacity: 0;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.5s ease-in, height 0.2s ease-in;
 
   .app-header__content {
     display: flex;
@@ -225,7 +239,7 @@ export default {
 
 @media (max-width: 960px) {
   .app-header {
-    transition: height .06s ease-in !important;
+    overflow: hidden;
 
     .app-header__content {
       position: relative;
@@ -236,8 +250,6 @@ export default {
       }
 
       .app-header__nav-block {
-        display: none;
-
         .app-header__nav {
           flex-direction: column;
           padding-left: 10px;
@@ -267,14 +279,5 @@ export default {
 .app-header_visible {
   display: block;
   opacity: 1;
-}
-
-.app-header_expanded {
-  height: auto;
-  max-height: 500px;
-
-  .app-header__nav-block {
-    display: block !important;
-  }
 }
 </style>
