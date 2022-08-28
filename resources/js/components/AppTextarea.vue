@@ -34,7 +34,7 @@ export default {
   width: 100%;
 
   .app-textarea__textarea {
-    width: 100%;
+    width: stretch;
     height: 155px;
     padding: 20px 26px;
     resize: none;

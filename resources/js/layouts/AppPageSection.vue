@@ -94,7 +94,7 @@ export default {
       padding-top: 37px;
 
       .app-page-section__title {
-        margin-bottom: 35px;
+        margin-bottom: 40px;
         font-size: 31px;
       }
 

@@ -39,7 +39,7 @@ export default {
   width: 100%;
 
   .app-input__input {
-    width: 100%;
+    width: stretch;
     height: 50px;
     padding-left: 26px;
     padding-right: 26px;

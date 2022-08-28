@@ -11,6 +11,9 @@
     <a name="quality"></a>
     <the-education-experience/>
 
+    <a name="contact"></a>
+    <the-contact-me/>
+
     <app-footer/>
     <div
       class="home-view__up"
@@ -57,6 +60,10 @@ export default {
         {
           text: "Quality",
           link: '#quality',
+        },
+        {
+          text: "Contact",
+          link: '#contact',
         },
       ],
     };
