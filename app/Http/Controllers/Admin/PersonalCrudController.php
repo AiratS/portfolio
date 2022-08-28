@@ -61,9 +61,10 @@ class PersonalCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'lang',
             'label' => trans('admin.lang'),
-            'attributes' => [
-                'disabled' => true,
-            ],
+            'type' => 'closure',
+            'function' => function (Personal $personal): string {
+                return LangEnum::caseLabel($personal->lang);
+            },
         ]);
     }
 

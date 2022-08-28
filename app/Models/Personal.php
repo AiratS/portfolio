@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $info
  * @property string $cv_url
  * @property string $cv_label
- * @property string $cv_lang
+ * @property string $lang
  *
  * @see PersonalRepository
  */

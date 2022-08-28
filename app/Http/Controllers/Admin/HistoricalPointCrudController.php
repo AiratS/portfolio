@@ -64,6 +64,10 @@ class HistoricalPointCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'type',
             'label' => trans('admin.historical_point.type'),
+            'type' => 'closure',
+            'function' => function (HistoricalPoint $historicalPoint): string {
+                return HistoricalPointTypeEnum::caseLabel($historicalPoint->type);
+            },
         ]);
     }
 

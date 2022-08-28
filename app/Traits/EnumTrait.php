@@ -14,6 +14,21 @@ trait EnumTrait
     }
 
     /**
+     * @throws \InvalidArgumentException
+     */
+    public static function caseLabel(mixed $case): mixed
+    {
+        $key = is_object($case) ? $case->value : $case;
+        $caseLabels = static::caseLabels();
+
+        if (!isset($caseLabels[$key])) {
+            throw new \InvalidArgumentException(sprintf('Undefined case "%s".', $key));
+        }
+
+        return $caseLabels[$key];
+    }
+
+    /**
      * @return array<mixed, string>
      */
     abstract public static function caseLabels(): array;

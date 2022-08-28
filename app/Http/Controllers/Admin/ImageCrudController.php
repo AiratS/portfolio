@@ -49,6 +49,12 @@ class ImageCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'type',
             'label' => trans('admin.image.type'),
+            'type' => 'closure',
+            'function' => function (Image $image): string {
+                return $image->type
+                    ? ImageTypeEnum::caseLabel($image->type)
+                    : '-';
+            },
         ]);
     }
 
