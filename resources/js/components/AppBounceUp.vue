@@ -1,5 +1,8 @@
 <template>
-  <div class="app-bounce-up">
+  <a
+    class="app-bounce-up"
+    :href="anchor"
+  >
     <div class="app-bounce-up__arrow app-bounce-up__arrow_padding_top">
       <div class="app-bounce-up__line app-bounce-up__line_left"></div>
       <div class="app-bounce-up__line app-bounce-up__line_right"></div>
@@ -8,12 +11,18 @@
       <div class="app-bounce-up__line app-bounce-up__line_left"></div>
       <div class="app-bounce-up__line app-bounce-up__line_right"></div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
 export default {
-  name: "AppBounceUp"
+  name: "AppBounceUp",
+  props: {
+    anchor: {
+      type: String,
+      required: true,
+    },
+  },
 }
 </script>
 
@@ -21,6 +30,7 @@ export default {
 @import "../../styles/abstract/colors";
 
 .app-bounce-up {
+  display: block;
   width: 26px;
   height: 44px;
   border: 1px solid $app-black;
@@ -73,7 +83,7 @@ export default {
   }
 
   to {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
 </style>

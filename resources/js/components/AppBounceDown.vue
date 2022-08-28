@@ -1,20 +1,30 @@
 <template>
-  <div class="app-bounce-down">
+  <a
+    class="app-bounce-down"
+    :href="anchor"
+  >
     <div class="app-bounce-down__arrow">
       <div class="app-bounce-down__line app-bounce-down__line_left"></div>
       <div class="app-bounce-down__line app-bounce-down__line_right"></div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
 export default {
   name: "AppBounceDown",
+  props: {
+    anchor: {
+      type: String,
+      required: true,
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .app-bounce-down {
+  display: block;
   height: 20px;
   cursor: pointer;
 

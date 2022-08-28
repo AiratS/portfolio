@@ -28,7 +28,7 @@
     <div class="the-profile__go-down">
       <app-bounce-down
         class="the-profile__bounce-down"
-        @click="onDownClicked"
+        :anchor="downAnchor"
       />
     </div>
   </div>
@@ -63,11 +63,6 @@ export default {
         cvLabel: 'Download CV',
       },
     };
-  },
-  methods: {
-    onDownClicked() {
-      window.location.href = '#' + this.downAnchor;
-    },
   },
 }
 </script>

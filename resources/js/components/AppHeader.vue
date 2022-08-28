@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { getPageHeight } from "../utils/page-height";
 import AppButton from "./AppButton";
 import TheMenuButton from "./TheMenuButton";
 
@@ -69,10 +70,11 @@ export default {
   },
 
   created() {
-    const halfHeight = this._getPageHeight() / 2;
+    const halfHeight = getPageHeight() / 2;
 
     document.addEventListener('scroll', () => {
       this.isVisible = halfHeight < window.scrollY;
+
       if (!this.isVisible) {
         this.isExpanded = false;
       }
@@ -87,12 +89,10 @@ export default {
 
       return {
         height: this.navHeight,
-      }
+      };
     },
     navHeight() {
-      const height = NAV_ITEM_HEIGHT_PX * this.navItems.length;
-
-      return height + 'px';
+      return (NAV_ITEM_HEIGHT_PX * this.navItems.length) + 'px';
     },
     processedNavItems() {
       return this.navItems.map((item) => {
@@ -113,19 +113,6 @@ export default {
     onMenuClicked() {
       this.isExpanded = !this.isExpanded;
     },
-    _getPageHeight() {
-      const body = document.body;
-      const html = document.documentElement;
-
-      return Math.max(
-        body.scrollHeight,
-        body.offsetHeight,
-        body.getBoundingClientRect().height,
-        html.clientHeight,
-        html.scrollHeight,
-        html.offsetHeight
-      );
-    }
   },
 
   watch: {
