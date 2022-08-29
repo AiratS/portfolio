@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Repositories\ImageRepository;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Storage;
  * @property int    $id
  * @property string $name
  * @property string $type
+ *
+ * @see ImageRepository
  */
 class Image extends Model
 {

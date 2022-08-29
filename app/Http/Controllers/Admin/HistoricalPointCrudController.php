@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\HistoricalPointTypeEnum;
+use App\Enums\HistoricalPointType;
 use App\Http\Requests\HistoricalPointRequest;
 use App\Models\HistoricalPoint;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -66,7 +66,7 @@ class HistoricalPointCrudController extends CrudController
             'label' => trans('admin.historical_point.type'),
             'type' => 'closure',
             'function' => function (HistoricalPoint $historicalPoint): string {
-                return HistoricalPointTypeEnum::caseLabel($historicalPoint->type);
+                return HistoricalPointType::caseLabel($historicalPoint->type);
             },
         ]);
     }
@@ -100,7 +100,7 @@ class HistoricalPointCrudController extends CrudController
             'name' => 'type',
             'label' => trans('admin.historical_point.type'),
             'type' => 'select_from_array',
-            'options' => HistoricalPointTypeEnum::caseLabels(),
+            'options' => HistoricalPointType::caseLabels(),
         ]);
     }
 

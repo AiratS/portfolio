@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests;
 
-use App\Enums\HistoricalPointTypeEnum;
+use App\Enums\HistoricalPointType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -30,7 +30,7 @@ class HistoricalPointRequest extends FormRequest
              'place' => 'required|min:5',
              'years' => 'required|min:5',
              'info' => 'required|min:5',
-             'type' => Rule::in(HistoricalPointTypeEnum::casesAsArray()),
+             'type' => Rule::in(HistoricalPointType::casesAsArray()),
         ];
     }
 }

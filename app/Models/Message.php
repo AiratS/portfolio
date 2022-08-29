@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Repositories\MessageRepository;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email
  * @property string $subject
  * @property string $message
+ *
+ * @see MessageRepository
  */
 class Message extends Model
 {

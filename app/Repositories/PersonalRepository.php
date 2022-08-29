@@ -11,4 +11,10 @@ use App\Models\Personal;
  */
 class PersonalRepository
 {
+    public function findLast(): ?Personal
+    {
+        return Personal::query()
+            ->get()
+            ->last();
+    }
 }

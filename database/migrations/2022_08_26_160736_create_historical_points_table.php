@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Enums\HistoricalPointTypeEnum;
+use App\Enums\HistoricalPointType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,7 +20,7 @@ class CreateHistoricalPointsTable extends Migration
             $table->string('place');
             $table->string('years');
             $table->text('info');
-            $table->enum('type', HistoricalPointTypeEnum::casesAsArray());
+            $table->enum('type', HistoricalPointType::casesAsArray());
             $table->timestamps();
         });
     }

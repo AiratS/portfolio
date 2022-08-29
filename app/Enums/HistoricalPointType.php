@@ -6,7 +6,7 @@ namespace App\Enums;
 
 use App\Traits\EnumTrait;
 
-enum HistoricalPointTypeEnum: string
+enum HistoricalPointType: string
 {
     use EnumTrait;
 

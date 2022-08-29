@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Enums\HistoricalPointTypeEnum;
+use App\Enums\HistoricalPointType;
 use App\Models\HistoricalPoint;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,7 +27,7 @@ class HistoricalPointFactory extends Factory
             'place' => $this->faker->word,
             'years' => $this->faker->word,
             'info' => $this->faker->text,
-            'type' => HistoricalPointTypeEnum::EDUCATION->value,
+            'type' => HistoricalPointType::EDUCATION->value,
         ];
     }
 }

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int    $id
  * @property string $full_name
+ * @property string $speciality
  * @property string $info
  * @property string $cv_url
  * @property string $cv_label
@@ -45,5 +46,12 @@ class Personal extends Model
      */
     protected $casts = [
         'id' => 'integer',
+    ];
+
+    /** @var string[] */
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at',
     ];
 }
