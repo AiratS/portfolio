@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Enums\HistoricalPointType;
+use App\Enums\ImageType;
 use App\Exceptions\InvalidValueException;
 use App\Models\Personal;
 use App\Repositories\HistoricalPointRepository;
@@ -19,7 +20,9 @@ class HomeDataCollector
         private QualityRepository $qualityRepository,
         private HistoricalPointRepository $historicalPointRepository,
         private ImageRepository $imageRepository,
-    ) {}
+        private ImagePathResolver $imagePathResolver,
+    ) {
+    }
 
     /**
      * @return array<string, mixed>
@@ -43,7 +46,9 @@ class HomeDataCollector
      */
     private function getProfile(): array
     {
-        return $this->findPersonalOrFail()->toArray();
+        return array_merge($this->findPersonalOrFail()->toArray(), [
+            'imagePath' => $this->findImagePathByTypeOrFail(ImageType::MAIN),
+        ]);
     }
 
     /**
@@ -57,6 +62,7 @@ class HomeDataCollector
         $qualities = $this->qualityRepository->fetchQualityNamesAndValues();
 
         return [
+            'imagePath' => $this->findImagePathByTypeOrFail(ImageType::ABOUT),
             'specialty' => $personal->speciality,
             'info' => $personal->info,
             'qualities' => $qualities->toArray(),
@@ -81,5 +87,18 @@ class HomeDataCollector
         }
 
         return $personal;
+    }
+
+    /**
+     * @throws InvalidValueException
+     */
+    private function findImagePathByTypeOrFail(ImageType $type): string
+    {
+        $image = $this->imageRepository->findFirstImageByType($type);
+        if (!$image) {
+            throw new InvalidValueException(sprintf('There is no image by type "%s".', $type->value));
+        }
+
+        return $this->imagePathResolver->resolve($image->name);
     }
 }
