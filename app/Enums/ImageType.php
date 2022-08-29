@@ -6,12 +6,12 @@ namespace App\Enums;
 
 use App\Traits\EnumTrait;
 
-enum LangEnum: string
+enum ImageType: string
 {
     use EnumTrait;
 
-    case RU = 'ru';
-    case EN = 'en';
+    case MAIN = 'main';
+    case ABOUT = 'about';
 
     /**
      * @return array<string, string>
@@ -19,8 +19,8 @@ enum LangEnum: string
     public static function caseLabels(): array
     {
         return [
-            self::RU->value => 'Русский',
-            self::EN->value => 'Английский',
+            self::MAIN->value => 'Главное',
+            self::ABOUT->value => 'Обо мне',
         ];
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests;
 
-use App\Enums\ImageTypeEnum;
+use App\Enums\ImageType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -32,7 +32,7 @@ class ImageRequest extends FormRequest
              ],
             'type' => [
                 'nullable',
-                Rule::in(ImageTypeEnum::casesAsArray()),
+                Rule::in(ImageType::casesAsArray()),
             ],
         ];
     }

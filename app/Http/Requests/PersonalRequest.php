@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests;
 
-use App\Enums\LangEnum;
+use App\Enums\LangType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -29,7 +29,7 @@ class PersonalRequest extends FormRequest
             'info' => 'required|min:5|max:1024',
             'cv_url' => 'required|active_url',
             'cv_label' => 'required|min:5|max:255',
-            'lang' => Rule::in(LangEnum::casesAsArray()),
+            'lang' => Rule::in(LangType::casesAsArray()),
         ];
     }
 }

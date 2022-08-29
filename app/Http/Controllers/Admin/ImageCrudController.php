@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\ImageTypeEnum;
+use App\Enums\ImageType;
 use App\Http\Requests\ImageRequest;
 use App\Models\Image;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -52,7 +52,7 @@ class ImageCrudController extends CrudController
             'type' => 'closure',
             'function' => function (Image $image): string {
                 return $image->type
-                    ? ImageTypeEnum::caseLabel($image->type)
+                    ? ImageType::caseLabel($image->type)
                     : '-';
             },
         ]);
@@ -74,7 +74,7 @@ class ImageCrudController extends CrudController
             'name' => 'type',
             'label' => trans('admin.image.type'),
             'type' => 'select_from_array',
-            'options' => ImageTypeEnum::caseLabels(),
+            'options' => ImageType::caseLabels(),
         ]);
     }
 

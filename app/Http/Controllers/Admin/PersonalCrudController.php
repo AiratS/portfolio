@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\LangEnum;
+use App\Enums\LangType;
 use App\Http\Requests\PersonalRequest;
 use App\Models\Personal;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -63,7 +63,7 @@ class PersonalCrudController extends CrudController
             'label' => trans('admin.lang'),
             'type' => 'closure',
             'function' => function (Personal $personal): string {
-                return LangEnum::caseLabel($personal->lang);
+                return LangType::caseLabel($personal->lang);
             },
         ]);
     }
@@ -102,7 +102,7 @@ class PersonalCrudController extends CrudController
             'name' => 'lang',
             'label' => trans('admin.lang'),
             'type' => 'select_from_array',
-            'options' => LangEnum::caseLabels(),
+            'options' => LangType::caseLabels(),
         ]);
     }
 
