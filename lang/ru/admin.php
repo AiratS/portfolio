@@ -32,4 +32,12 @@ return [
         'images' => 'Изображения',
         'type' => 'Вид изображения',
     ],
+    'message' => [
+        'message' => 'Сообщение',
+        'messages' => 'Сообщения',
+        'name' => 'Имя',
+        'email' => 'Email',
+        'subject' => 'Тема',
+        'created_at' => 'Создан',
+    ],
 ];

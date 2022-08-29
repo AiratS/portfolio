@@ -32,4 +32,12 @@ return [
         'images' => 'Images',
         'type' => 'Type',
     ],
+    'message' => [
+        'message' => 'Message',
+        'messages' => 'Messages',
+        'name' => 'Name',
+        'email' => 'Email',
+        'subject' => 'Subject',
+        'created_at' => 'Created at',
+    ],
 ];

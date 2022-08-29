@@ -25,4 +25,5 @@ Route::group([
     Route::crud('quality', 'QualityCrudController');
     Route::crud('historical-point', 'HistoricalPointCrudController');
     Route::crud('image', 'ImageCrudController');
+    Route::crud('message', 'MessageCrudController');
 });
