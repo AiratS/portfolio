@@ -19,7 +19,7 @@
 const TYPE_SUCCESS = 'success';
 const TYPE_DANGER = 'danger';
 
-const DEFAULT_TIMEOUT = 2000;
+const DEFAULT_TIMEOUT = 4000;
 
 export default {
   name: "AppAlert",
@@ -89,15 +89,13 @@ export default {
 @import "../../styles/abstract/colors";
 
 .app-alert {
-  display: none;
+  visibility: hidden;
   position: relative;
   width: 100%;
-  padding-top: 12px;
-  padding-bottom: 12px;
   border-radius: 4px;
   text-align: center;
   opacity: 0;
-  transition: opacity 1s ease-in;
+  transition: opacity 0.7s ease-in-out;
 
   .app-alert__text {
     font-size: 16px;
@@ -132,7 +130,9 @@ export default {
 }
 
 .app-alert_visible {
-  display: block;
+  visibility: visible;
+  padding-top: 12px;
+  padding-bottom: 12px;
   opacity: 1;
 }
 </style>
