@@ -1,5 +1,8 @@
 <template>
-  <div v-if="profile" class="home-view">
+  <div
+    v-if="profile"
+    class="home-view"
+  >
     <app-header :nav-items="navItems"/>
 
     <a name="profile"></a>
@@ -15,6 +18,7 @@
     <the-contact-me/>
 
     <app-footer/>
+
     <div
       class="home-view__up"
       :class="{ 'home-view__up_visible': isBounceUpVisible }"
@@ -22,32 +26,37 @@
       <app-bounce-up anchor="#profile"/>
     </div>
   </div>
-  <div v-else>
-    TODO: add loader
+  <div
+    v-else
+    class="loader"
+  >
+    <app-pong-loader class="loader__pong-loader"/>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
 import { getPageHeight } from "../utils/page-height";
+import AppHeader from "../components/AppHeader";
+import AppFooter from "../components/AppFooter";
+import AppPongLoader from "../components/AppPongLoader";
+import AppBounceUp from "../components/AppBounceUp";
 import TheProfile from "../components/TheProfile";
 import TheAboutMe from "../components/TheAboutMe";
 import TheEducationExperience from "../components/TheEducationExperience";
 import TheContactMe from "../components/TheContactMe";
-import AppFooter from "../components/AppFooter";
-import AppHeader from "../components/AppHeader";
-import AppBounceUp from "../components/AppBounceUp";
 
 export default {
   name: "HomeView",
   components: {
     AppHeader,
     AppFooter,
+    AppPongLoader,
     AppBounceUp,
     TheProfile,
-    TheContactMe,
     TheAboutMe,
     TheEducationExperience,
+    TheContactMe,
   },
   data() {
     return {
@@ -90,6 +99,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../styles/abstract/colors";
+
 .home-view__up {
   position: fixed;
   display: none;
@@ -110,5 +121,17 @@ export default {
 .home-view__up_visible {
   display: block;
   opacity: 1;
+}
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  background-color: $app-green;
+
+  .loader__pong-loader {
+    padding-top: 35vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>
