@@ -53,6 +53,7 @@ class MessageCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'message',
             'label' => trans('admin.message.message'),
+            'type' => 'textarea',
         ]);
 
         $this->crud->addColumn([
