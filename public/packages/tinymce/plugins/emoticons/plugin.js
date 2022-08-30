@@ -475,7 +475,7 @@
       };
       var currentTab = Cell(ALL_CATEGORY);
       var scan = function (dialogApi) {
-        var dialogData = dialogApi.getData();
+        var dialogData = dialogApi.fetchData();
         var category = currentTab.get();
         var candidates = database.listCategory(category);
         var results = emojisFrom(candidates, dialogData[patternName], category === ALL_CATEGORY ? Optional.some(300) : Optional.none());

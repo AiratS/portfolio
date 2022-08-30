@@ -2170,7 +2170,7 @@
           }
         ],
         onSubmit: function (api) {
-          var data = api.getData();
+          var data = api.fetchData();
           parseStartValue(data.start).each(function (detail) {
             editor.execCommand('mceListUpdate', false, {
               attrs: { start: detail.start === '1' ? '' : detail.start },

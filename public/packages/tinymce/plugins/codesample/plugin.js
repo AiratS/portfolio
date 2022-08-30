@@ -2242,7 +2242,7 @@
           code: currentCode
         },
         onSubmit: function (api) {
-          var data = api.getData();
+          var data = api.fetchData();
           insertCodeSample(editor, data.language, data.code);
           api.close();
         }

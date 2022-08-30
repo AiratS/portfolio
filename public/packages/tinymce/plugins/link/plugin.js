@@ -894,7 +894,7 @@
 
     var handleSubmit = function (editor, info) {
       return function (api) {
-        var data = api.getData();
+        var data = api.fetchData();
         if (!data.url.value) {
           unlink(editor);
           api.close();
@@ -1002,7 +1002,7 @@
         initialData: initialData,
         onChange: function (api, _a) {
           var name = _a.name;
-          dialogDelta.onChange(api.getData, { name: name }).each(function (newData) {
+          dialogDelta.onChange(api.fetchData, { name: name }).each(function (newData) {
             api.setData(newData);
           });
         },

@@ -8118,7 +8118,7 @@
       }
     };
     var onSubmitCellForm = function (editor, cells, oldData, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       api.close();
       editor.undoManager.transact(function () {
         applyCellData(editor, cells, oldData, data);
@@ -8296,7 +8296,7 @@
       }
     };
     var onSubmitRowForm = function (editor, rows, oldData, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       api.close();
       editor.undoManager.transact(function () {
         applyRowData(editor, rows, oldData, data);
@@ -8497,7 +8497,7 @@
     };
     var onSubmitTableForm = function (editor, tableElm, oldData, api) {
       var dom = editor.dom;
-      var data = api.getData();
+      var data = api.fetchData();
       var modifiedData = filter$1(data, function (value, key) {
         return oldData[key] !== value;
       });

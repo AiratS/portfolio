@@ -875,7 +875,7 @@
       var currentData = Cell(editorData);
       var initialData = wrap(editorData);
       var handleSource = function (prevData, api) {
-        var serviceData = unwrap(api.getData(), 'source');
+        var serviceData = unwrap(api.fetchData(), 'source');
         if (prevData.source !== serviceData.source) {
           addEmbedHtml(win, editor)({
             url: serviceData.source,
@@ -885,12 +885,12 @@
         }
       };
       var handleEmbed = function (api) {
-        var data = unwrap(api.getData());
+        var data = unwrap(api.fetchData());
         var dataFromEmbed = snippetToData(editor, data.embed);
         api.setData(wrap(dataFromEmbed));
       };
       var handleUpdate = function (api, sourceInput) {
-        var data = unwrap(api.getData(), sourceInput);
+        var data = unwrap(api.fetchData(), sourceInput);
         var embed = dataToHtml(editor, data);
         api.setData(wrap(__assign(__assign({}, data), { embed: embed })));
       };
@@ -974,7 +974,7 @@
           }
         ],
         onSubmit: function (api) {
-          var serviceData = unwrap(api.getData());
+          var serviceData = unwrap(api.fetchData());
           submitForm(currentData.get(), serviceData, editor);
           api.close();
         },
@@ -992,7 +992,7 @@
             handleUpdate(api, detail.name);
             break;
           }
-          currentData.set(unwrap(api.getData()));
+          currentData.set(unwrap(api.fetchData()));
         },
         initialData: initialData
       });

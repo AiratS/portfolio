@@ -1025,8 +1025,8 @@
       var items = {};
       var mceInternalUrlPrefix = 'data:text/mce-internal,';
       if (dataTransfer) {
-        if (dataTransfer.getData) {
-          var legacyText = dataTransfer.getData('Text');
+        if (dataTransfer.fetchData) {
+          var legacyText = dataTransfer.fetchData();
           if (legacyText && legacyText.length > 0) {
             if (legacyText.indexOf(mceInternalUrlPrefix) === -1) {
               items['text/plain'] = legacyText;
@@ -1037,7 +1037,7 @@
           for (var i = 0; i < dataTransfer.types.length; i++) {
             var contentType = dataTransfer.types[i];
             try {
-              items[contentType] = dataTransfer.getData(contentType);
+              items[contentType] = dataTransfer.fetchData();
             } catch (ex) {
               items[contentType] = '';
             }

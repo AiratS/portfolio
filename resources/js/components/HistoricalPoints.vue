@@ -17,7 +17,7 @@
         </div>
         <div class="historical-points__map-place">
         <span class="historical-points__map-place-name">
-          {{ point.placeName }}
+          {{ point.place }}
         </span>
           <span class="historical-points__map-years">
           {{ point.years }}

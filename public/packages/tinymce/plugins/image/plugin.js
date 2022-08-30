@@ -1222,7 +1222,7 @@
       return Optional.none();
     };
     var addPrependUrl = function (info, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       addPrependUrl2(info, data.src.value).each(function (srcURL) {
         api.setData({
           src: {
@@ -1279,7 +1279,7 @@
       }
     };
     var formFillFromMeta = function (info, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       var meta = data.src.meta;
       if (meta !== undefined) {
         var newData = deepMerge({}, data);
@@ -1288,7 +1288,7 @@
       }
     };
     var calculateImageSize = function (helpers, info, state, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       var url = data.src.value;
       var meta = data.src.meta || {};
       if (!meta.width && !meta.height && info.hasDimensions) {
@@ -1311,7 +1311,7 @@
       }
     };
     var updateImagesDropdown = function (info, state, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       var image = ListUtils.findEntry(info.imageList, data.src.value);
       state.prevImage = image;
       api.setData({
@@ -1327,7 +1327,7 @@
       updateImagesDropdown(info, state, api);
     };
     var changeImages = function (helpers, info, state, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       var image = ListUtils.findEntry(info.imageList, data.images);
       image.each(function (img) {
         var updateAlt = data.alt === '' || state.prevImage.map(function (image) {
@@ -1380,17 +1380,17 @@
       return dataCopy;
     };
     var changeStyle = function (helpers, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       var newData = changeStyle2(helpers.parseStyle, helpers.serializeStyle, data);
       api.setData(newData);
     };
     var changeAStyle = function (helpers, info, api) {
-      var data = deepMerge(fromImageData(info.image), api.getData());
+      var data = deepMerge(fromImageData(info.image), api.fetchData());
       var style = getStyleValue(helpers.normalizeCss, toImageData(data, false));
       api.setData({ style: style });
     };
     var changeFileInput = function (helpers, info, state, api) {
-      var data = api.getData();
+      var data = api.fetchData();
       api.block('Uploading image');
       head(data.fileinput).fold(function () {
         api.unblock();
@@ -1435,7 +1435,7 @@
         } else if (evt.name === 'images') {
           changeImages(helpers, info, state, api);
         } else if (evt.name === 'alt') {
-          state.prevAlt = api.getData().alt;
+          state.prevAlt = api.fetchData().alt;
         } else if (evt.name === 'style') {
           changeStyle(helpers, api);
         } else if (evt.name === 'vspace' || evt.name === 'hspace' || evt.name === 'border' || evt.name === 'borderstyle') {
@@ -1443,7 +1443,7 @@
         } else if (evt.name === 'fileinput') {
           changeFileInput(helpers, info, state, api);
         } else if (evt.name === 'isDecorative') {
-          if (api.getData().isDecorative) {
+          if (api.fetchData().isDecorative) {
             api.disable('alt');
           } else {
             api.enable('alt');
@@ -1505,7 +1505,7 @@
     var submitHandler = function (editor) {
       return function (info) {
         return function (api) {
-          var data = deepMerge(fromImageData(info.image), api.getData());
+          var data = deepMerge(fromImageData(info.image), api.fetchData());
           editor.execCommand('mceUpdateImage', false, toImageData(data, info.hasAccessibilityOptions));
           editor.editorUpload.uploadImagesAuto();
           api.close();

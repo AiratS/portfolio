@@ -1599,7 +1599,7 @@
       };
       var SEARCH_DELAY = 40;
       var updateFilter = last(function (dialogApi) {
-        var pattern = dialogApi.getData().pattern;
+        var pattern = dialogApi.fetchData().pattern;
         scanAndSet(dialogApi, pattern);
       }, SEARCH_DELAY);
       var body = charMap.length === 1 ? makePanel() : makeTabPanel();

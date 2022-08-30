@@ -1355,7 +1355,7 @@
               }
             ],
             onSubmit: function (api) {
-              var blob = api.getData().imagetools.blob;
+              var blob = api.fetchData().imagetools.blob;
               originalImgOpt.each(function (originalImg) {
                 originalSizeOpt.each(function (originalSize) {
                   handleDialogBlob(editor, imageUploadTimerState, originalImg.dom, originalSize, blob);

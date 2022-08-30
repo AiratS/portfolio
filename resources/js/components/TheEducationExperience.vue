@@ -9,21 +9,22 @@
     <div class="the-education-experience-content">
       <historical-points
         class="the-education-experience-content__historical-points"
-        :title="title"
-        :points="points"
+        title="Образование"
+        :points="education"
       ></historical-points>
       <historical-points
         class="the-education-experience-content__historical-points"
-        :title="title"
-        :points="points"
+        title="Опыт"
+        :points="experience"
       ></historical-points>
     </div>
   </app-page-section>
 </template>
 
 <script>
-import HistoricalPoints from "./HistoricalPoints";
+import { mapState } from "vuex";
 import AppPageSection from "../layouts/AppPageSection";
+import HistoricalPoints from "./HistoricalPoints";
 
 export default {
   name: "TheEducationExperience",
@@ -31,30 +32,11 @@ export default {
     AppPageSection,
     HistoricalPoints,
   },
-  data() {
-    return {
-      title: 'My education',
-      points: [
-        {
-          title: 'Title',
-          placeName: 'Place name',
-          years: '2020-2021',
-          info: 'Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam'
-        },
-        {
-          title: 'Title',
-          placeName: 'Place name',
-          years: '2020-2021',
-          info: 'infasdfjasl aksdjfkas jfkjasdkfjhaslkdfh alkjhdflahdsljkfadfhjklasdhf o'
-        },
-        {
-          title: 'Title',
-          placeName: 'Place name',
-          years: '2020-2021',
-          info: 'infasdfjasl aksdjfkas jfkjasdkfjhaslkdfh alkjhdflahdsljkfadfhjklasdhf o'
-        },
-      ]
-    };
+  computed: {
+    ...mapState([
+      'education',
+      'experience',
+    ]),
   },
 }
 </script>

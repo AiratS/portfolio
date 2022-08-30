@@ -435,7 +435,7 @@
       var onChange = function (templates, updateDialog) {
         return function (api, change) {
           if (change.name === 'template') {
-            var newTemplateTitle = api.getData().template;
+            var newTemplateTitle = api.fetchData().template;
             findTemplate(templates, newTemplateTitle).each(function (t) {
               api.block('Loading...');
               getTemplateContent(t).then(function (previewHtml) {
@@ -451,7 +451,7 @@
       };
       var onSubmit = function (templates) {
         return function (api) {
-          var data = api.getData();
+          var data = api.fetchData();
           findTemplate(templates, data.template).each(function (t) {
             getTemplateContent(t).then(function (previewHtml) {
               editor.execCommand('mceInsertTemplate', false, previewHtml);

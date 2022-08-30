@@ -361,7 +361,7 @@
         ],
         initialData: initialData,
         onSubmit: function (api) {
-          var nuData = api.getData();
+          var nuData = api.fetchData();
           var headHtml = dataToHtml(editor, global$3.extend(data, nuData), headState.get());
           headState.set(headHtml);
           api.close();

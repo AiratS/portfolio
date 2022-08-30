@@ -511,9 +511,9 @@
 			var dateString;
 			if (e.originalEvent.clipboardData && e.originalEvent.clipboardData.types
 				&& $.inArray('text/plain', e.originalEvent.clipboardData.types) !== -1) {
-				dateString = e.originalEvent.clipboardData.getData('text/plain');
+				dateString = e.originalEvent.clipboardData.fetchData();
 			} else if (window.clipboardData) {
-				dateString = window.clipboardData.getData('Text');
+				dateString = window.clipboardData.fetchData();
 			} else {
 				return;
 			}

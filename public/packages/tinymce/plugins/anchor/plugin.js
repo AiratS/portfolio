@@ -130,7 +130,7 @@
         ],
         initialData: { id: currentId },
         onSubmit: function (api) {
-          if (insertAnchor(editor, api.getData().id)) {
+          if (insertAnchor(editor, api.fetchData().id)) {
             api.close();
           }
         }

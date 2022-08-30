@@ -5,8 +5,8 @@
       :key="quality.type"
       class="the-qualities__quality"
     >
-      <span class="the-qualities__type">
-        {{ quality.type }}:
+      <span class="the-qualities__name">
+        {{ quality.name }}:
       </span>
       <span class="the-qualities__value">
         {{ quality.value }}
@@ -41,7 +41,7 @@ export default {
     font-weight: 400;
     margin-bottom: 20px;
 
-    .the-qualities__type {
+    .the-qualities__name {
       color: $app-black;
     }
 

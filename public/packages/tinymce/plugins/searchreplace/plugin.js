@@ -921,7 +921,7 @@
         updatePrev('prev');
       };
       var updateSearchState = function (api) {
-        var data = api.getData();
+        var data = api.fetchData();
         var current = currentSearchState.get();
         currentSearchState.set(__assign(__assign({}, current), {
           matchCase: data.matchcase,
@@ -955,7 +955,7 @@
         updateButtonStates(api);
       };
       var doFind = function (api) {
-        var data = api.getData();
+        var data = api.fetchData();
         var last = currentSearchState.get();
         if (!data.findtext.length) {
           reset(api);
@@ -1073,7 +1073,7 @@
           }
         },
         onAction: function (api, details) {
-          var data = api.getData();
+          var data = api.fetchData();
           switch (details.name) {
           case 'find':
             doFind(api);

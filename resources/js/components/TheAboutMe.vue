@@ -10,23 +10,19 @@
       <div class="the-about-me-content__photo">
         <img
           class="the-about-me-content__img"
-          src="../../assets/images/the-about-me-photo.jpeg"
+          :src="aboutMe.imagePath"
           alt="the-about-me-photo"
         />
       </div>
       <div class="the-about-me-content__personal">
         <div class="the-about-me-content__specialty">
-          UI/UX Designer & Web Developer
+          {{ aboutMe.speciality }}
         </div>
         <div class="the-about-me-content__info">
-          Tempor eos dolore amet tempor dolor tempor.
-          Dolore ea magna sit amet dolor eirmod.
-          Eos ipsum est tempor dolor. Clita lorem kasd sed
-          ea lorem diam ea lorem eirmod duo sit ipsum. Amet
-          dolor stet lorem diam dolor justo et dolor dolor dolor
+          {{ aboutMe.info }}
         </div>
         <div class="the-about-me-content__qualities">
-          <the-qualities :qualities="qualities" />
+          <the-qualities :qualities="aboutMe.qualities" />
         </div>
       </div>
     </div>
@@ -34,9 +30,10 @@
 </template>
 
 <script>
-import TheQualities from "./TheQualities";
-import AppButton from "./AppButton";
+import { mapState } from "vuex";
 import AppPageSection from "../layouts/AppPageSection";
+import AppButton from "./AppButton";
+import TheQualities from "./TheQualities";
 
 export default {
   name: "TheAboutMe",
@@ -45,27 +42,8 @@ export default {
     AppButton,
     TheQualities,
   },
-  data() {
-    return {
-      qualities: [
-        {
-          type: 'Name',
-          value: 'Kate'
-        },
-        {
-          type: 'Name',
-          value: 'Kate'
-        },
-        {
-          type: 'Name',
-          value: 'Kate'
-        },
-        {
-          type: 'Name',
-          value: 'Kate'
-        },
-      ]
-    };
+  computed: {
+    ...mapState(['aboutMe']),
   },
 }
 </script>

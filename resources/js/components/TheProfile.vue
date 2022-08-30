@@ -4,24 +4,26 @@
       <div class="the-profile__avatar">
         <img
           class="the-profile__avatar-img"
-          src="../../assets/images/avatar.jpeg"
+          :src="profile.imagePath"
           alt="avatar"
         />
       </div>
       <div class="the-profile__info">
         <div class="the-profile__i-am">
-          {{ profile.iAm }}
+          Я
         </div>
         <div class="the-profile__full-name">
           {{ profile.fullName }}
         </div>
-        <div class="the-profile__specialty">
-          <the-text-type :text="profile.specialty"></the-text-type>
+        <div class="the-profile__speciality">
+          <the-text-type :text="profile.speciality"></the-text-type>
         </div>
         <div class="the-profile__cv">
-          <app-button>
-            {{ profile.cvLabel }}
-          </app-button>
+          <a :href="profile.cvUrl">
+            <app-button>
+              {{ profile.cvLabel }}
+            </app-button>
+          </a>
         </div>
       </div>
     </div>
@@ -35,6 +37,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import TheTextType from "./TheTextType";
 import AppButton from "./AppButton";
 import AppBounceDown from "./AppBounceDown";
@@ -52,17 +55,8 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      profile: {
-        iAm: 'I\'m',
-        avatar: '',
-        fullName: 'KATE WINSLET',
-        specialty: 'frontend developer',
-        cvUrl: '#',
-        cvLabel: 'Download CV',
-      },
-    };
+  computed: {
+    ...mapState(['profile']),
   },
 }
 </script>
@@ -108,7 +102,7 @@ export default {
         color: $app-green;
       }
 
-      .the-profile__specialty {
+      .the-profile__speciality {
         margin-top: 22px;
       }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="home-view">
+  <div v-if="profile" class="home-view">
     <app-header :nav-items="navItems"/>
 
     <a name="profile"></a>
@@ -22,9 +22,13 @@
       <app-bounce-up anchor="#profile"/>
     </div>
   </div>
+  <div v-else>
+    TODO: add loader
+  </div>
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import { getPageHeight } from "../utils/page-height";
 import TheProfile from "../components/TheProfile";
 import TheAboutMe from "../components/TheAboutMe";
@@ -37,13 +41,13 @@ import AppBounceUp from "../components/AppBounceUp";
 export default {
   name: "HomeView",
   components: {
-    AppBounceUp,
     AppHeader,
     AppFooter,
-    TheContactMe,
-    TheEducationExperience,
-    TheAboutMe,
+    AppBounceUp,
     TheProfile,
+    TheContactMe,
+    TheAboutMe,
+    TheEducationExperience,
   },
   data() {
     return {
@@ -69,10 +73,18 @@ export default {
     };
   },
   created() {
+    this.fetchHome();
+
     const pageHeight = getPageHeight();
     document.addEventListener('scroll', () => {
       this.isBounceUpVisible = pageHeight < window.scrollY;
     });
+  },
+  computed: {
+    ...mapState(['profile'])
+  },
+  methods: {
+    ...mapActions(['fetchHome'])
   },
 }
 </script>

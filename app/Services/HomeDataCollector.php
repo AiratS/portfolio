@@ -12,6 +12,7 @@ use App\Repositories\HistoricalPointRepository;
 use App\Repositories\ImageRepository;
 use App\Repositories\PersonalRepository;
 use App\Repositories\QualityRepository;
+use Illuminate\Support\Str;
 
 class HomeDataCollector
 {
@@ -46,9 +47,15 @@ class HomeDataCollector
      */
     private function getProfile(): array
     {
-        return array_merge($this->findPersonalOrFail()->toArray(), [
+        $resulting = [
             'imagePath' => $this->findImagePathByTypeOrFail(ImageType::MAIN),
-        ]);
+        ];
+
+        foreach ($this->findPersonalOrFail()->toArray() as $key => $value) {
+            $resulting[Str::camel($key)] = $value;
+        }
+
+        return $resulting;
     }
 
     /**
@@ -63,7 +70,7 @@ class HomeDataCollector
 
         return [
             'imagePath' => $this->findImagePathByTypeOrFail(ImageType::ABOUT),
-            'specialty' => $personal->speciality,
+            'speciality' => $personal->speciality,
             'info' => $personal->info,
             'qualities' => $qualities->toArray(),
         ];

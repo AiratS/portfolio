@@ -50,7 +50,7 @@
         ],
         initialData: { code: editorContent },
         onSubmit: function (api) {
-          setContent(editor, api.getData().code);
+          setContent(editor, api.fetchData().code);
           api.close();
         }
       });

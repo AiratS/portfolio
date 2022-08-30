@@ -12225,7 +12225,7 @@
       return function (callback, value) {
         var isValid = false;
         var onSubmit = function (api) {
-          var data = api.getData();
+          var data = api.fetchData();
           var hex = data.colorpicker;
           if (isValid) {
             callback(Optional.from(hex));
@@ -25199,7 +25199,7 @@
         return map$2(dataset.data, function (d) {
           return processBasic(d, spec.isSelectedFor, spec.getPreviewFor);
         });
-      } : dataset.getData;
+      } : dataset.fetchData;
       return {
         items: generateSelectItems(editor, backstage, spec),
         getStyleItems: getStyleItems
@@ -26042,12 +26042,12 @@
         eventOrder: (_d = {}, _d[mousedown()] = [
           'focusing',
           'alloy.base.behaviour',
-          'common-button-display-events'
+          'utils-button-display-events'
         ], _d),
         buttonBehaviours: derive$1([
           DisablingConfigs.toolbarButton(providersBackstage.isDisabled),
           receivingConfig(),
-          config('common-button-display-events', [run$1(mousedown(), function (button, se) {
+          config('utils-button-display-events', [run$1(mousedown(), function (button, se) {
               se.event.prevent();
               emit(button, focusButtonEvent);
             })])
@@ -29220,7 +29220,7 @@
         return result;
       };
       var update = function (mode, dragEvent) {
-        return mode.getData(dragEvent).bind(function (nuData) {
+        return mode.fetchData().bind(function (nuData) {
           return calculateDelta(mode, nuData);
         });
       };
@@ -31738,7 +31738,7 @@
         }),
         runOnDetached(function (component) {
           var api = getInstanceApi();
-          Representing.setValue(component, api.getData());
+          Representing.setValue(component, api.fetchData());
         })
       ], false);
     };
@@ -31859,7 +31859,7 @@
       };
       var setData = function (newData) {
         withRoot(function (_) {
-          var prevData = instanceApi.getData();
+          var prevData = instanceApi.fetchData();
           var mergedData = __assign(__assign({}, prevData), newData);
           var newInternalData = validateData$1(access, mergedData);
           var form = access.getFormWrapper();
