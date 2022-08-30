@@ -11,4 +11,13 @@ use App\Models\Message;
  */
 class MessageRepository
 {
+    /**
+     * @noinspection PhpIncompatibleReturnTypeInspection
+     *
+     * @param array<string, string> $data
+     */
+    public function createFromArray(array $data): ?Message
+    {
+        return Message::query()->create($data);
+    }
 }

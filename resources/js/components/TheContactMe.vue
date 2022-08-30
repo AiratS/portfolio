@@ -10,7 +10,6 @@
       <app-alert
         class="the-contact-me-content__alert"
         ref="the-contact-me-content__alert"
-        message="Ваше письмо успешно отправлено"
       />
 
       <div class="the-contact-me-content__name-email">
@@ -52,8 +51,9 @@
 </template>
 
 <script>
-import useVuelidate from '@vuelidate/core'
-import { required, email, helpers } from '@vuelidate/validators'
+import useVuelidate from "@vuelidate/core";
+import { required, email, helpers } from "@vuelidate/validators";
+import api from "../api";
 import AppInput from "./AppInput";
 import AppTextarea from "./AppTextarea";
 import AppButton from "./AppButton";
@@ -135,8 +135,27 @@ export default {
         return;
       }
 
-      // TODO: add api request
-      this.$refs['the-contact-me-content__alert'].show();
+      this._storeMessage();
+    },
+    _storeMessage() {
+      api.message.storeMessage(this.$data)
+        .then(() => {
+          this._resetMessageFields();
+          this.$refs['the-contact-me-content__alert'].show('Ваше сообщение успешно отправлено. Спасибо :)');
+        })
+        .catch(() => {
+          this.$refs['the-contact-me-content__alert'].show(
+            'Произошла ошибка, повторите Вашу попытку позже :)',
+            'danger'
+          );
+        });
+    },
+    _resetMessageFields() {
+      this.isFirstSubmit = true;
+
+      ['name', 'email', 'subject', 'message'].map((field) => {
+        this[field] = null;
+      });
     },
     _getValidationMessage(field) {
       return !this.isFirstSubmit

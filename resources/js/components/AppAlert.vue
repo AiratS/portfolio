@@ -4,7 +4,7 @@
     :class="modifiers"
   >
     <div class="app-alert__text">
-      {{ message }}
+      {{ instanceMessage }}
     </div>
     <div
       class="app-alert__cross"
@@ -31,19 +31,26 @@ export default {
     },
     message: {
       type: String,
-      required: true,
+      required: false,
+    },
+    timeout: {
+      type: Number,
+      required: false,
+      default: DEFAULT_TIMEOUT,
     },
   },
   data() {
     return {
       visible: false,
+      instanceMessage: this.message,
+      instanceType: this.type,
     };
   },
   computed: {
     modifiers() {
       const classes = [];
 
-      classes.push(TYPE_DANGER === this.type
+      classes.push(TYPE_DANGER === this.instanceType
         ? 'app-alert_type_danger'
         : 'app-alert_type_success');
 
@@ -55,11 +62,15 @@ export default {
     },
   },
   methods: {
-    show() {
+    show(message = this.message, type = this.type) {
+      this.instanceMessage = message;
+      this.instanceType = type;
       this.visible = true;
     },
     hide() {
       this.visible = false;
+      this.instanceMessage = this.message;
+      this.instanceType = this.type;
     },
   },
   watch: {
@@ -67,7 +78,7 @@ export default {
       if (visible) {
         setTimeout(() => {
           this.hide();
-        }, DEFAULT_TIMEOUT);
+        }, this.timeout);
       }
     },
   },
