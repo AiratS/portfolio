@@ -1,7 +1,7 @@
 <template>
   <div
     class="app-header"
-    :class="{ 'app-header_visible': isVisible }"
+    :class="modifiers"
     :style="styles"
   >
     <div class="app-header__content">
@@ -58,9 +58,15 @@ export default {
   },
 
   props: {
+    alwaysVisible: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     navItems: {
       type: Array,
-      required: true,
+      required: false,
+      default: [],
     },
   },
 
@@ -85,6 +91,13 @@ export default {
   },
 
   computed: {
+    modifiers() {
+      if (this.alwaysVisible) {
+        return 'app-header_always-visible';
+      }
+
+      return { 'app-header_visible': this.isVisible };
+    },
     styles() {
       if (!this.isExpanded) {
         return null;
@@ -251,5 +264,18 @@ export default {
 .app-header_visible {
   display: block;
   opacity: 1;
+}
+
+.app-header_always-visible {
+  @extend .app-header_visible;
+  position: relative !important;
+
+  .app-header__github {
+    display: block !important;
+  }
+
+  .app-header__menu {
+    display: none !important;
+  }
 }
 </style>
