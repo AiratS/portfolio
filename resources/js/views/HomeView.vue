@@ -48,6 +48,7 @@ import TheContactMe from "../components/TheContactMe";
 
 export default {
   name: "HomeView",
+
   components: {
     AppHeader,
     AppFooter,
@@ -58,6 +59,7 @@ export default {
     TheEducationExperience,
     TheContactMe,
   },
+
   data() {
     return {
       isBounceUpVisible: false,
@@ -81,17 +83,28 @@ export default {
       ],
     };
   },
+
   created() {
-    this.fetchHome();
+    this.fetchHome().catch((error) => {
+      console.log(error);
+      this.$router.push({
+        name: 'error',
+        params: {
+          code: `${error.response.status} - ${error.response.statusText}`,
+        },
+      });
+    });
 
     const pageHeight = getPageHeight();
     document.addEventListener('scroll', () => {
       this.isBounceUpVisible = pageHeight < window.scrollY;
     });
   },
+
   computed: {
     ...mapState(['profile'])
   },
+
   methods: {
     ...mapActions(['fetchHome'])
   },

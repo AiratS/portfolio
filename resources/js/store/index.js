@@ -27,6 +27,7 @@ export default createStore({
         api.home.fetchData()
           .then((response) => {
             commit(SET_HOME, response.data);
+            resolve(response.data);
           })
           .catch(reject);
       });
