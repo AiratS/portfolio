@@ -33,7 +33,6 @@ export default {
     error: {
       type: String,
       required: false,
-      default: 'some ajsdlkfjasd'
     },
   },
   methods: {
